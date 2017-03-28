@@ -1,0 +1,722 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PETCENTER_201701Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aplicacion">
+    <Key>
+      <PropertyRef Name="AplicacionId" />
+    </Key>
+    <Property Name="AplicacionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AplicacionIdPadre" Type="bigint" />
+    <Property Name="Nombre" Type="varchar" MaxLength="70" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="70" />
+    <Property Name="Controlador" Type="varchar" MaxLength="70" />
+    <Property Name="Accion" Type="varchar" MaxLength="70" />
+    <Property Name="EsMenu" Type="int" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
+  <EntityType Name="GAM_Informe_Medico">
+    <Key>
+      <PropertyRef Name="informe_medico" />
+    </Key>
+    <Property Name="informe_medico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_cliente" Type="int" />
+    <Property Name="codigo_mascota" Type="int" />
+    <Property Name="fechaAtencion" Type="date" />
+    <Property Name="detalleInforme" Type="varchar" MaxLength="500" />
+    <Property Name="diagnostico" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="GCP_Cliente">
+    <Key>
+      <PropertyRef Name="codigo_cliente" />
+    </Key>
+    <Property Name="codigo_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_persona" Type="int" />
+    <Property Name="emailCliente" Type="varchar" MaxLength="40" />
+    <Property Name="autorizaUsoDatos" Type="bit" />
+  </EntityType>
+  <EntityType Name="GCP_Especie">
+    <Key>
+      <PropertyRef Name="codigo_especie" />
+    </Key>
+    <Property Name="codigo_especie" Type="int" Nullable="false" />
+    <Property Name="descripcionEspecie" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="GCP_Mascota">
+    <Key>
+      <PropertyRef Name="codigo_mascota" />
+    </Key>
+    <Property Name="codigo_mascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_cliente" Type="int" />
+    <Property Name="codigo_especie" Type="int" />
+    <Property Name="codigo_raza" Type="int" />
+    <Property Name="nombreMascota" Type="varchar" MaxLength="40" />
+    <Property Name="genero" Type="char" MaxLength="1" />
+    <Property Name="fechaNacimiento" Type="date" />
+    <Property Name="tamano" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="GCP_Raza">
+    <Key>
+      <PropertyRef Name="codigo_raza" />
+    </Key>
+    <Property Name="codigo_raza" Type="int" Nullable="false" />
+    <Property Name="codigo_especie" Type="int" />
+    <Property Name="nombreRaza" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="GCP_Tipo_Documento">
+    <Key>
+      <PropertyRef Name="tipo_documento" />
+    </Key>
+    <Property Name="tipo_documento" Type="int" Nullable="false" />
+    <Property Name="descrDocumento" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="GFC_Comprobante_Pago">
+    <Key>
+      <PropertyRef Name="comprobante_pago" />
+    </Key>
+    <Property Name="comprobante_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_cliente" Type="int" />
+    <Property Name="nroComprobante" Type="int" />
+    <Property Name="descripcionItem" Type="varchar" MaxLength="200" />
+    <Property Name="fechaComprobante" Type="date" />
+    <Property Name="montoTotal" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="igv" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="GG_Empleado">
+    <Key>
+      <PropertyRef Name="codigo_empleado" />
+    </Key>
+    <Property Name="codigo_empleado" Type="int" Nullable="false" />
+    <Property Name="codigo_persona" Type="int" />
+    <Property Name="cargo" Type="varchar" MaxLength="40" />
+    <Property Name="area" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="GG_Persona">
+    <Key>
+      <PropertyRef Name="codigo_persona" />
+    </Key>
+    <Property Name="codigo_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_documento" Type="int" />
+    <Property Name="numeroDocumento" Type="varchar" MaxLength="20" />
+    <Property Name="apellidoPaterno" Type="varchar" MaxLength="40" />
+    <Property Name="apellidoMaterno" Type="varchar" MaxLength="40" />
+    <Property Name="nombres" Type="varchar" MaxLength="40" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="GPA_Camada">
+    <Key>
+      <PropertyRef Name="numero_camada" />
+    </Key>
+    <Property Name="numero_camada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="solicitud_pedigri" Type="int" />
+    <Property Name="codigo_mascota" Type="int" />
+  </EntityType>
+  <EntityType Name="GPA_Declaracion_Jurada_Domicilio">
+    <Key>
+      <PropertyRef Name="numero_declaracion_jurada" />
+    </Key>
+    <Property Name="numero_declaracion_jurada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_solicitud" Type="int" />
+    <Property Name="fechaDeclaracion" Type="date" />
+    <Property Name="descCuerpo" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="GPA_Detalle_Resultados_KCP">
+    <Key>
+      <PropertyRef Name="detalle_resultados_KCP" />
+    </Key>
+    <Property Name="detalle_resultados_KCP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_registro_resultado_KCP" Type="int" />
+    <Property Name="numRegistroKCP" Type="varchar" MaxLength="20" />
+    <Property Name="descResultado" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="GPA_Informe_Verificacion_Domicilio">
+    <Key>
+      <PropertyRef Name="numero_informe_verificacion" />
+    </Key>
+    <Property Name="numero_informe_verificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_solicitud" Type="int" />
+    <Property Name="fechaInformeVerificacion" Type="date" />
+    <Property Name="direccionVerificacion" Type="varchar" MaxLength="150" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="500" />
+    <Property Name="ResultadoInformeVerificacion" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="GPA_Registro_Resultados_KCP">
+    <Key>
+      <PropertyRef Name="numero_registro_resultado_KCP" />
+    </Key>
+    <Property Name="numero_registro_resultado_KCP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_solicitud" Type="int" />
+    <Property Name="fechaRegistroKCP" Type="date" />
+    <Property Name="numMascotas" Type="smallint" />
+    <Property Name="numRegistroKCPPadre" Type="int" />
+    <Property Name="numRegistroKCPMadre" Type="int" />
+  </EntityType>
+  <EntityType Name="GPA_Requisito_Domicilio">
+    <Key>
+      <PropertyRef Name="numero_requisito_domicilio" />
+    </Key>
+    <Property Name="numero_requisito_domicilio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descRequisitoDomicilio" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="GPA_Solicitud">
+    <Key>
+      <PropertyRef Name="numero_solicitud" />
+    </Key>
+    <Property Name="numero_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_cliente" Type="int" />
+    <Property Name="fechaSolicitud" Type="date" />
+    <Property Name="comentarios" Type="varchar" MaxLength="200" />
+    <Property Name="estadoSolicitud" Type="char" MaxLength="1" />
+    <Property Name="tipoSolicitud" Type="char" MaxLength="1" />
+    <Property Name="UsuarioCreacion" Type="int" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="int" />
+    <Property Name="FechaModificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="GPA_Solicitud_Adopcion">
+    <Key>
+      <PropertyRef Name="solicitud_adopcion" />
+    </Key>
+    <Property Name="solicitud_adopcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_solicitud" Type="int" />
+    <Property Name="domicilioLocal" Type="bit" />
+  </EntityType>
+  <EntityType Name="GPA_Solicitud_Cruces">
+    <Key>
+      <PropertyRef Name="solicitud_cruce" />
+    </Key>
+    <Property Name="solicitud_cruce" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_solicitud" Type="int" />
+    <Property Name="codigo_cliente1" Type="int" />
+    <Property Name="codigo_mascota1" Type="int" />
+    <Property Name="codigo_cliente2" Type="int" />
+    <Property Name="codigo_mascota2" Type="int" />
+    <Property Name="fechaCruce" Type="date" />
+  </EntityType>
+  <EntityType Name="GPA_Solicitud_Pedigri">
+    <Key>
+      <PropertyRef Name="solicitud_pedigri" />
+    </Key>
+    <Property Name="solicitud_pedigri" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_solicitud" Type="int" />
+    <Property Name="codigo_mascota_padre" Type="int" />
+    <Property Name="codigo_mascota_madre" Type="int" />
+    <Property Name="fechaRecepcionInf_KCP" Type="date" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_GAM_Informe_Medico_GCP_Cliente">
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="0..1" />
+    <End Role="GAM_Informe_Medico" Type="Self.GAM_Informe_Medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="GAM_Informe_Medico">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GCP_Cliente_GG_Persona">
+    <End Role="GG_Persona" Type="Self.GG_Persona" Multiplicity="0..1" />
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GG_Persona">
+        <PropertyRef Name="codigo_persona" />
+      </Principal>
+      <Dependent Role="GCP_Cliente">
+        <PropertyRef Name="codigo_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GCP_Mascota_GCP_Cliente">
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="0..1" />
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="GCP_Mascota">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GCP_Mascota_GCP_Especie">
+    <End Role="GCP_Especie" Type="Self.GCP_Especie" Multiplicity="0..1" />
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Especie">
+        <PropertyRef Name="codigo_especie" />
+      </Principal>
+      <Dependent Role="GCP_Mascota">
+        <PropertyRef Name="codigo_especie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GCP_Mascota_GCP_Raza">
+    <End Role="GCP_Raza" Type="Self.GCP_Raza" Multiplicity="0..1" />
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Raza">
+        <PropertyRef Name="codigo_raza" />
+      </Principal>
+      <Dependent Role="GCP_Mascota">
+        <PropertyRef Name="codigo_raza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GFC_Comprobante_Pago_GCP_Cliente">
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="0..1" />
+    <End Role="GFC_Comprobante_Pago" Type="Self.GFC_Comprobante_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="GFC_Comprobante_Pago">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GG_Empleado_GG_Persona">
+    <End Role="GG_Persona" Type="Self.GG_Persona" Multiplicity="0..1" />
+    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GG_Persona">
+        <PropertyRef Name="codigo_persona" />
+      </Principal>
+      <Dependent Role="GG_Empleado">
+        <PropertyRef Name="codigo_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GG_Persona_GCP_Tipo_Documento">
+    <End Role="GCP_Tipo_Documento" Type="Self.GCP_Tipo_Documento" Multiplicity="0..1" />
+    <End Role="GG_Persona" Type="Self.GG_Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Tipo_Documento">
+        <PropertyRef Name="tipo_documento" />
+      </Principal>
+      <Dependent Role="GG_Persona">
+        <PropertyRef Name="tipo_documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Camada_GPA_Solicitud_Pedigri">
+    <End Role="GPA_Solicitud_Pedigri" Type="Self.GPA_Solicitud_Pedigri" Multiplicity="0..1" />
+    <End Role="GPA_Camada" Type="Self.GPA_Camada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud_Pedigri">
+        <PropertyRef Name="solicitud_pedigri" />
+      </Principal>
+      <Dependent Role="GPA_Camada">
+        <PropertyRef Name="solicitud_pedigri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Declaracion_Jurada_Domicilio_GPA_Solicitud">
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="0..1" />
+    <End Role="GPA_Declaracion_Jurada_Domicilio" Type="Self.GPA_Declaracion_Jurada_Domicilio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud">
+        <PropertyRef Name="numero_solicitud" />
+      </Principal>
+      <Dependent Role="GPA_Declaracion_Jurada_Domicilio">
+        <PropertyRef Name="numero_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Detalle_Resultados_KCP_GPA_Registro_Resultados_KCP">
+    <End Role="GPA_Registro_Resultados_KCP" Type="Self.GPA_Registro_Resultados_KCP" Multiplicity="0..1" />
+    <End Role="GPA_Detalle_Resultados_KCP" Type="Self.GPA_Detalle_Resultados_KCP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Registro_Resultados_KCP">
+        <PropertyRef Name="numero_registro_resultado_KCP" />
+      </Principal>
+      <Dependent Role="GPA_Detalle_Resultados_KCP">
+        <PropertyRef Name="numero_registro_resultado_KCP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Informe_Verificacion_Domicilio_GPA_Solicitud">
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="0..1" />
+    <End Role="GPA_Informe_Verificacion_Domicilio" Type="Self.GPA_Informe_Verificacion_Domicilio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud">
+        <PropertyRef Name="numero_solicitud" />
+      </Principal>
+      <Dependent Role="GPA_Informe_Verificacion_Domicilio">
+        <PropertyRef Name="numero_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Registro_Resultados_KCP_GPA_Solicitud">
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="0..1" />
+    <End Role="GPA_Registro_Resultados_KCP" Type="Self.GPA_Registro_Resultados_KCP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud">
+        <PropertyRef Name="numero_solicitud" />
+      </Principal>
+      <Dependent Role="GPA_Registro_Resultados_KCP">
+        <PropertyRef Name="numero_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Adopcion_GPA_Solicitud">
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Adopcion" Type="Self.GPA_Solicitud_Adopcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud">
+        <PropertyRef Name="numero_solicitud" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Adopcion">
+        <PropertyRef Name="numero_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Cruces_GCP_Cliente">
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Cruces" Type="Self.GPA_Solicitud_Cruces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Cruces">
+        <PropertyRef Name="codigo_cliente1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Cruces_GCP_Cliente1">
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Cruces" Type="Self.GPA_Solicitud_Cruces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Cruces">
+        <PropertyRef Name="codigo_cliente2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Cruces_GCP_Mascota">
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Cruces" Type="Self.GPA_Solicitud_Cruces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Mascota">
+        <PropertyRef Name="codigo_mascota" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Cruces">
+        <PropertyRef Name="codigo_mascota1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Cruces_GCP_Mascota1">
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Cruces" Type="Self.GPA_Solicitud_Cruces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Mascota">
+        <PropertyRef Name="codigo_mascota" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Cruces">
+        <PropertyRef Name="codigo_mascota2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Cruces_GPA_Solicitud">
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Cruces" Type="Self.GPA_Solicitud_Cruces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud">
+        <PropertyRef Name="numero_solicitud" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Cruces">
+        <PropertyRef Name="numero_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_GCP_Cliente">
+    <End Role="GCP_Cliente" Type="Self.GCP_Cliente" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_GG_Empleado">
+    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GG_Empleado">
+        <PropertyRef Name="codigo_empleado" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud">
+        <PropertyRef Name="UsuarioCreacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_GG_Empleado1">
+    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GG_Empleado">
+        <PropertyRef Name="codigo_empleado" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud">
+        <PropertyRef Name="UsuarioModificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Pedigri_GCP_Mascota">
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Pedigri" Type="Self.GPA_Solicitud_Pedigri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Mascota">
+        <PropertyRef Name="codigo_mascota" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Pedigri">
+        <PropertyRef Name="codigo_mascota_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Pedigri_GCP_Mascota1">
+    <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Pedigri" Type="Self.GPA_Solicitud_Pedigri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GCP_Mascota">
+        <PropertyRef Name="codigo_mascota" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Pedigri">
+        <PropertyRef Name="codigo_mascota_madre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPA_Solicitud_Pedigri_GPA_Solicitud">
+    <End Role="GPA_Solicitud" Type="Self.GPA_Solicitud" Multiplicity="0..1" />
+    <End Role="GPA_Solicitud_Pedigri" Type="Self.GPA_Solicitud_Pedigri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPA_Solicitud">
+        <PropertyRef Name="numero_solicitud" />
+      </Principal>
+      <Dependent Role="GPA_Solicitud_Pedigri">
+        <PropertyRef Name="numero_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_AnularSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="numero_solicitud" Type="int" Mode="In" />
+    <Parameter Name="UsuarioModificacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ConsultarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="numero_solicitud" Type="int" Mode="In" />
+    <Parameter Name="nombres" Type="varchar" Mode="In" />
+    <Parameter Name="apellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="apellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="tipoDocumento" Type="int" Mode="In" />
+    <Parameter Name="numeroDocumento" Type="varchar" Mode="In" />
+    <Parameter Name="fechaInicial" Type="date" Mode="In" />
+    <Parameter Name="fechaFinal" Type="date" Mode="In" />
+    <Parameter Name="estadoSolicitud" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ObtenerCamada" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="solicitud_pedigri" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ObtenerClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombres" Type="varchar" Mode="In" />
+    <Parameter Name="apellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="apellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="tipoDocumento" Type="int" Mode="In" />
+    <Parameter Name="numeroDocumento" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ObtenerMascotas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo_cliente" Type="int" Mode="In" />
+    <Parameter Name="genero" Type="char" Mode="In" />
+    <Parameter Name="nombreMascota" Type="varchar" Mode="In" />
+    <Parameter Name="nombreRaza" Type="varchar" Mode="In" />
+    <Parameter Name="EdadMayorIgual" Type="varchar" Mode="In" />
+    <Parameter Name="EdadDias" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ObtenerRazas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo_especie" Type="int" Mode="In" />
+    <Parameter Name="nombreRaza" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_RegistrarCamada" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo_solicitud_pedigri" Type="int" Mode="In" />
+    <Parameter Name="codigo_mascota" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_RegistrarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo_cliente" Type="int" Mode="In" />
+    <Parameter Name="codigo_mascota_padre" Type="int" Mode="In" />
+    <Parameter Name="codigo_mascota_madre" Type="int" Mode="In" />
+    <Parameter Name="comentarios" Type="varchar" Mode="In" />
+    <Parameter Name="tipoSolicitud" Type="char" Mode="In" />
+    <Parameter Name="UsuarioCreacion" Type="int" Mode="In" />
+    <Parameter Name="codigo_solicitud" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udf_IsEmptyString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="ParString1" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PETCENTER_201701ModelStoreContainer">
+    <EntitySet Name="Aplicacion" EntityType="Self.Aplicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GAM_Informe_Medico" EntityType="Self.GAM_Informe_Medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GCP_Cliente" EntityType="Self.GCP_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GCP_Especie" EntityType="Self.GCP_Especie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GCP_Mascota" EntityType="Self.GCP_Mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GCP_Raza" EntityType="Self.GCP_Raza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GCP_Tipo_Documento" EntityType="Self.GCP_Tipo_Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GFC_Comprobante_Pago" EntityType="Self.GFC_Comprobante_Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GG_Empleado" EntityType="Self.GG_Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GG_Persona" EntityType="Self.GG_Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Camada" EntityType="Self.GPA_Camada" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Declaracion_Jurada_Domicilio" EntityType="Self.GPA_Declaracion_Jurada_Domicilio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Detalle_Resultados_KCP" EntityType="Self.GPA_Detalle_Resultados_KCP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Informe_Verificacion_Domicilio" EntityType="Self.GPA_Informe_Verificacion_Domicilio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Registro_Resultados_KCP" EntityType="Self.GPA_Registro_Resultados_KCP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Requisito_Domicilio" EntityType="Self.GPA_Requisito_Domicilio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Solicitud" EntityType="Self.GPA_Solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Solicitud_Adopcion" EntityType="Self.GPA_Solicitud_Adopcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Solicitud_Cruces" EntityType="Self.GPA_Solicitud_Cruces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GPA_Solicitud_Pedigri" EntityType="Self.GPA_Solicitud_Pedigri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_GAM_Informe_Medico_GCP_Cliente" Association="Self.FK_GAM_Informe_Medico_GCP_Cliente">
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+      <End Role="GAM_Informe_Medico" EntitySet="GAM_Informe_Medico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GCP_Cliente_GG_Persona" Association="Self.FK_GCP_Cliente_GG_Persona">
+      <End Role="GG_Persona" EntitySet="GG_Persona" />
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GCP_Mascota_GCP_Cliente" Association="Self.FK_GCP_Mascota_GCP_Cliente">
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GCP_Mascota_GCP_Especie" Association="Self.FK_GCP_Mascota_GCP_Especie">
+      <End Role="GCP_Especie" EntitySet="GCP_Especie" />
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GCP_Mascota_GCP_Raza" Association="Self.FK_GCP_Mascota_GCP_Raza">
+      <End Role="GCP_Raza" EntitySet="GCP_Raza" />
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GFC_Comprobante_Pago_GCP_Cliente" Association="Self.FK_GFC_Comprobante_Pago_GCP_Cliente">
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+      <End Role="GFC_Comprobante_Pago" EntitySet="GFC_Comprobante_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GG_Empleado_GG_Persona" Association="Self.FK_GG_Empleado_GG_Persona">
+      <End Role="GG_Persona" EntitySet="GG_Persona" />
+      <End Role="GG_Empleado" EntitySet="GG_Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GG_Persona_GCP_Tipo_Documento" Association="Self.FK_GG_Persona_GCP_Tipo_Documento">
+      <End Role="GCP_Tipo_Documento" EntitySet="GCP_Tipo_Documento" />
+      <End Role="GG_Persona" EntitySet="GG_Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Camada_GPA_Solicitud_Pedigri" Association="Self.FK_GPA_Camada_GPA_Solicitud_Pedigri">
+      <End Role="GPA_Solicitud_Pedigri" EntitySet="GPA_Solicitud_Pedigri" />
+      <End Role="GPA_Camada" EntitySet="GPA_Camada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Declaracion_Jurada_Domicilio_GPA_Solicitud" Association="Self.FK_GPA_Declaracion_Jurada_Domicilio_GPA_Solicitud">
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+      <End Role="GPA_Declaracion_Jurada_Domicilio" EntitySet="GPA_Declaracion_Jurada_Domicilio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Detalle_Resultados_KCP_GPA_Registro_Resultados_KCP" Association="Self.FK_GPA_Detalle_Resultados_KCP_GPA_Registro_Resultados_KCP">
+      <End Role="GPA_Registro_Resultados_KCP" EntitySet="GPA_Registro_Resultados_KCP" />
+      <End Role="GPA_Detalle_Resultados_KCP" EntitySet="GPA_Detalle_Resultados_KCP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Informe_Verificacion_Domicilio_GPA_Solicitud" Association="Self.FK_GPA_Informe_Verificacion_Domicilio_GPA_Solicitud">
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+      <End Role="GPA_Informe_Verificacion_Domicilio" EntitySet="GPA_Informe_Verificacion_Domicilio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Registro_Resultados_KCP_GPA_Solicitud" Association="Self.FK_GPA_Registro_Resultados_KCP_GPA_Solicitud">
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+      <End Role="GPA_Registro_Resultados_KCP" EntitySet="GPA_Registro_Resultados_KCP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Adopcion_GPA_Solicitud" Association="Self.FK_GPA_Solicitud_Adopcion_GPA_Solicitud">
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+      <End Role="GPA_Solicitud_Adopcion" EntitySet="GPA_Solicitud_Adopcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Cruces_GCP_Cliente" Association="Self.FK_GPA_Solicitud_Cruces_GCP_Cliente">
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+      <End Role="GPA_Solicitud_Cruces" EntitySet="GPA_Solicitud_Cruces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Cruces_GCP_Cliente1" Association="Self.FK_GPA_Solicitud_Cruces_GCP_Cliente1">
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+      <End Role="GPA_Solicitud_Cruces" EntitySet="GPA_Solicitud_Cruces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Cruces_GCP_Mascota" Association="Self.FK_GPA_Solicitud_Cruces_GCP_Mascota">
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+      <End Role="GPA_Solicitud_Cruces" EntitySet="GPA_Solicitud_Cruces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Cruces_GCP_Mascota1" Association="Self.FK_GPA_Solicitud_Cruces_GCP_Mascota1">
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+      <End Role="GPA_Solicitud_Cruces" EntitySet="GPA_Solicitud_Cruces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Cruces_GPA_Solicitud" Association="Self.FK_GPA_Solicitud_Cruces_GPA_Solicitud">
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+      <End Role="GPA_Solicitud_Cruces" EntitySet="GPA_Solicitud_Cruces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_GCP_Cliente" Association="Self.FK_GPA_Solicitud_GCP_Cliente">
+      <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_GG_Empleado" Association="Self.FK_GPA_Solicitud_GG_Empleado">
+      <End Role="GG_Empleado" EntitySet="GG_Empleado" />
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_GG_Empleado1" Association="Self.FK_GPA_Solicitud_GG_Empleado1">
+      <End Role="GG_Empleado" EntitySet="GG_Empleado" />
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Pedigri_GCP_Mascota" Association="Self.FK_GPA_Solicitud_Pedigri_GCP_Mascota">
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+      <End Role="GPA_Solicitud_Pedigri" EntitySet="GPA_Solicitud_Pedigri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Pedigri_GCP_Mascota1" Association="Self.FK_GPA_Solicitud_Pedigri_GCP_Mascota1">
+      <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
+      <End Role="GPA_Solicitud_Pedigri" EntitySet="GPA_Solicitud_Pedigri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPA_Solicitud_Pedigri_GPA_Solicitud" Association="Self.FK_GPA_Solicitud_Pedigri_GPA_Solicitud">
+      <End Role="GPA_Solicitud" EntitySet="GPA_Solicitud" />
+      <End Role="GPA_Solicitud_Pedigri" EntitySet="GPA_Solicitud_Pedigri" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webAppPetCenter", "webAppPetCenter\webAppPetCenter.csproj", "{05F36451-A026-4540-ABB0-915837BE8A4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetCenterBL", "PetCenterBL\PetCenterBL.csproj", "{5A72DB55-5634-4177-AB1A-9F8C1C99E7D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetCenterDL", "PetCenterDL\PetCenterDL.csproj", "{C267FB1A-8A1F-4BE2-8A2A-9496C8E2700C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05F36451-A026-4540-ABB0-915837BE8A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F36451-A026-4540-ABB0-915837BE8A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F36451-A026-4540-ABB0-915837BE8A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F36451-A026-4540-ABB0-915837BE8A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A72DB55-5634-4177-AB1A-9F8C1C99E7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A72DB55-5634-4177-AB1A-9F8C1C99E7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A72DB55-5634-4177-AB1A-9F8C1C99E7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A72DB55-5634-4177-AB1A-9F8C1C99E7D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C267FB1A-8A1F-4BE2-8A2A-9496C8E2700C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C267FB1A-8A1F-4BE2-8A2A-9496C8E2700C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C267FB1A-8A1F-4BE2-8A2A-9496C8E2700C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C267FB1A-8A1F-4BE2-8A2A-9496C8E2700C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

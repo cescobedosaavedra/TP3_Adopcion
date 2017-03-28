@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc438a411418488b98230c23ca4ecdd1" Name="Diagram1">
+        <EntityTypeShape EntityType="PETCENTER_201701Model.Aplicacion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GAM_Informe_Medico" Width="1.5" PointX="7.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GCP_Cliente" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GCP_Especie" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GCP_Mascota" Width="1.5" PointX="10.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GCP_Raza" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GCP_Tipo_Documento" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GFC_Comprobante_Pago" Width="1.5" PointX="7.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GG_Empleado" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GG_Persona" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Camada" Width="1.5" PointX="18" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Declaracion_Jurada_Domicilio" Width="1.5" PointX="12.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Detalle_Resultados_KCP" Width="1.5" PointX="15" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Informe_Verificacion_Domicilio" Width="1.5" PointX="12.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Registro_Resultados_KCP" Width="1.5" PointX="12.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Requisito_Domicilio" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Solicitud" Width="1.5" PointX="10.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Solicitud_Adopcion" Width="1.5" PointX="12.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Solicitud_Cruces" Width="1.5" PointX="15.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.GPA_Solicitud_Pedigri" Width="1.5" PointX="15.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTER_201701Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GAM_Informe_Medico_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GCP_Cliente_GG_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GCP_Mascota_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GFC_Comprobante_Pago_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Cruces_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Cruces_GCP_Cliente1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GCP_Mascota_GCP_Especie" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GCP_Mascota_GCP_Raza" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Cruces_GCP_Mascota" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Cruces_GCP_Mascota1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Pedigri_GCP_Mascota" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Pedigri_GCP_Mascota1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GG_Persona_GCP_Tipo_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GG_Empleado_GG_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_GG_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_GG_Empleado1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Camada_GPA_Solicitud_Pedigri" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Declaracion_Jurada_Domicilio_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Detalle_Resultados_KCP_GPA_Registro_Resultados_KCP" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Informe_Verificacion_Domicilio_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Registro_Resultados_KCP_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Adopcion_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Cruces_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTER_201701Model.FK_GPA_Solicitud_Pedigri_GPA_Solicitud" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

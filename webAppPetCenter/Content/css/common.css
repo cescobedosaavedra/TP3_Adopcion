@@ -1,0 +1,66 @@
+﻿
+h1, h2, h3, h4, h5, h6, p.esp
+{
+    font-family: AYearWithoutRain,Geneva,Helvetica,Arial,'Sans Serif';
+}
+
+a, div, input, label, li, p, select, span, td.nocal, ul, button.noform, td
+{
+    font-family: Candara,Geneva,Helvetica,Arial,'Sans Serif';
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body
+{
+    background-attatchment: fixed;
+    margin: 0;
+    padding: 70px 0 0 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+table
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th
+{
+    padding: 6px;
+ 
+}
+
+.container
+{
+    width: 1310px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.modal-body
+{
+    padding: 20px !important;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: #D9534F;
+    border-color: #D9534F;
+}
+
+.navbar-inverse {
+    background-color: #337AB7;
+    border-color: #337AB7;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand{
+     color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+     color: #fff;
+}

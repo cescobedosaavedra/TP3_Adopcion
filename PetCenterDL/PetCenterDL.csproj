@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C267FB1A-8A1F-4BE2-8A2A-9496C8E2700C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PetCenterDL</RootNamespace>
+    <AssemblyName>PetCenterDL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\AplicacionDL.cs" />
+    <Compile Include="Persistencia\Aplicacion.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GAM_Informe_Medico.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GCP_Cliente.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GCP_Especie.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GCP_Mascota.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GCP_Raza.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GCP_Tipo_Documento.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GFC_Comprobante_Pago.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GG_Empleado.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GG_Persona.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Camada.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Declaracion_Jurada_Domicilio.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Detalle_Resultados_KCP.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Informe_Verificacion_Domicilio.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Registro_Resultados_KCP.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Requisito_Domicilio.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Solicitud.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Solicitud_Adopcion.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Solicitud_Cruces.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\GPA_Solicitud_Pedigri.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\PetCenterModelo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetCenterModelo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\PetCenterModelo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\PetCenterModelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetCenterModelo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\sp_ConsultarSolicitud_Result.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\sp_ObtenerCamada_Result.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\sp_ObtenerClientes_Result.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\sp_ObtenerMascotas_Result.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\sp_ObtenerRazas_Result.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\sysdiagrams.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Persistencia\PetCenterModelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PetCenterModelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Persistencia\PetCenterModelo.edmx.diagram">
+      <DependentUpon>PetCenterModelo.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistencia\PetCenterModelo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PetCenterModelo.edmx</DependentUpon>
+      <LastGenOutput>PetCenterModelo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistencia\PetCenterModelo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PetCenterModelo.edmx</DependentUpon>
+      <LastGenOutput>PetCenterModelo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
