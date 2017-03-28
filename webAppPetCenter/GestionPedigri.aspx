@@ -11,7 +11,7 @@
         <label class="col-sm-2 control-label">Datos de Cliente</label>
         <div class="col-sm-10">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#divModalCliente" id="btnBuscarCliente">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Buscar Cliente
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Buscar Cliente:
             </button>
         </div>
     </div>
